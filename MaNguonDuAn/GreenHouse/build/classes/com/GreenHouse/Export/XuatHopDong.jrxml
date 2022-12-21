@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7463d9f3-cb11-4c3c-9afb-5acfb444509d">
+	<property name="ireport.zoom" value="1.6105100000000012"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="384"/>
+	<parameter name="MaHopDong" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="MaTour" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Users\\Thuy\\Desktop\\DuAn1\\BackUp_DuAn1\\GreenHouse\\src\\com\\GreenHouse\\Export\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="MaVe" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+CONVERT(VARCHAR(30),GETDATE(),120) as ThoiGian,
+     ChucVu."TenChucVu" AS ChucVu_TenChucVu,
+     NhanVien."SDT" AS NhanVien_SDT,
+     NhanVien."TenNhanVien" AS NhanVien_TenNhanVien,
+     Ve."MaVe" AS Ve_MaVe,
+     Ve."MaTour" AS Ve_MaTour,
+     Ve."SoLuongVeNguoiLon" AS Ve_SoLuongVeNguoiLon,
+     Ve."SoLuongVeTreEm" AS Ve_SoLuongVeTreEm,
+     Ve."TongTien" AS Ve_TongTien,
+     Ve."NgayBan" AS Ve_NgayBan,
+     Tour."MaTour" AS Tour_MaTour,
+     Tour."TenTour" AS Tour_TenTour,
+     KhachHang."TenKhachHang" AS KhachHang_TenKhachHang,
+     KhachHang."GioiTinh" AS KhachHang_GioiTinh,
+     KhachHang."SDT" AS KhachHang_SDT,
+     KhachHang."Email" AS KhachHang_Email,
+     KhachHang."DiaChi" AS KhachHang_DiaChi,
+     HopDong."MaHopDong" AS HopDong_MaHopDong,
+     HopDong."NgayLapHopDong" AS HopDong_NgayLapHopDong,
+     HopDong."SoLuongKhach" AS HopDong_SoLuongKhach,
+     NhanVien."DiaChi" AS NhanVien_DiaChi
+FROM
+     "dbo"."ChucVu" ChucVu INNER JOIN "dbo"."NhanVien" NhanVien ON ChucVu."MaChucVu" = NhanVien."MaChucVu"
+     INNER JOIN "dbo"."Ve" Ve ON NhanVien."MaNhanVien" = Ve."MaNhanVien"
+     INNER JOIN "dbo"."Tour" Tour ON Ve."MaTour" = Tour."MaTour"
+     INNER JOIN "dbo"."KhachHang" KhachHang ON Ve."MaKhachHang" = KhachHang."MaKhachHang"
+     INNER JOIN "dbo"."HopDong" HopDong ON Ve."MaVe" = HopDong."MaVe"
+WHERE
+     MaHopDong = $P{MaHopDong}]]>
+	</queryString>
+	<field name="ThoiGian" class="java.lang.String"/>
+	<field name="ChucVu_TenChucVu" class="java.lang.String"/>
+	<field name="NhanVien_SDT" class="java.lang.String"/>
+	<field name="NhanVien_TenNhanVien" class="java.lang.String"/>
+	<field name="Ve_MaVe" class="java.lang.String"/>
+	<field name="Ve_MaTour" class="java.lang.String"/>
+	<field name="Ve_SoLuongVeNguoiLon" class="java.lang.Integer"/>
+	<field name="Ve_SoLuongVeTreEm" class="java.lang.Integer"/>
+	<field name="Ve_TongTien" class="java.math.BigDecimal"/>
+	<field name="Ve_NgayBan" class="java.sql.Date"/>
+	<field name="Tour_MaTour" class="java.lang.String"/>
+	<field name="Tour_TenTour" class="java.lang.String"/>
+	<field name="KhachHang_TenKhachHang" class="java.lang.String"/>
+	<field name="KhachHang_GioiTinh" class="java.lang.Boolean"/>
+	<field name="KhachHang_SDT" class="java.lang.String"/>
+	<field name="KhachHang_Email" class="java.lang.String"/>
+	<field name="KhachHang_DiaChi" class="java.lang.String"/>
+	<field name="HopDong_MaHopDong" class="java.lang.String"/>
+	<field name="HopDong_NgayLapHopDong" class="java.sql.Date"/>
+	<field name="HopDong_SoLuongKhach" class="java.lang.Integer"/>
+	<field name="NhanVien_DiaChi" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="83" splitType="Stretch">
+			<staticText>
+				<reportElement x="192" y="0" width="207" height="20" uuid="5f8ec841-f8c6-4a11-a06f-4aa0ef1660aa"/>
+				<text><![CDATA[CỘNG HOÀ XÃ HỘI CHỦ NGHĨA VIỆT NAM
+
+Độc lập – Tự do – Hạnh phúc
+
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="219" y="20" width="134" height="20" uuid="0cd697e1-b6eb-4b4c-be11-3d3e79789dde"/>
+				<text><![CDATA[Độc lập - Tự do - Hạnh phúc]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="163" y="40" width="272" height="20" uuid="ced4e3d5-2501-430c-91b0-7c0769cd7321"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[HỢP ĐỒNG TỔ CHỨC TOUR DU LỊCH]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="262" y="60" width="100" height="20" uuid="809d6b1e-9517-49e6-aad6-db9a0c1a8e5b"/>
+				<textFieldExpression><![CDATA[$F{HopDong_MaHopDong}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="215" y="60" width="47" height="20" uuid="df712e03-0a90-45f2-89d2-179cb06aef41"/>
+				<text><![CDATA[Mã HD:]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="84" splitType="Stretch">
+			<staticText>
+				<reportElement x="14" y="0" width="555" height="15" uuid="8507b1d8-19b5-4121-9a65-1cd27da143ad"/>
+				<text><![CDATA[Căn cứ Bộ Luật dân sự ban hành năm 2015 của Quốc Hội nước Cộng Hòa Xã Hội Chủ Nghĩa Việt Nam.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="14" y="15" width="463" height="16" uuid="145a804a-cdc8-4a6e-ac10-c6f9d4db95eb"/>
+				<textElement verticalAlignment="Top"/>
+				<text><![CDATA[Sẽ thanh toán sau khi đoàn thực hiện xong hợp đồng 07 ngày, kèm theo Thanh lý hợp đồng.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="14" y="35" width="555" height="17" uuid="8a80982f-594f-4c63-b2c8-73b71f669ad0"/>
+				<text><![CDATA[Căn cứ vào Luật du lịch ban hành ngày 19/06/2017 của Quốc Hội nước Cộng Hòa Xã Hội Chủ Nghĩa Việt Nam.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="14" y="52" width="555" height="28" uuid="5a530217-5d3d-4189-8e12-4ea928dfbc96"/>
+				<text><![CDATA[Căn cứ Luật Thương mại số 36/2005/QH11 ban hành ngày 14/06/2005 của Quốc Hội nước Cộng Hòa Xã Hội Chủ Nghĩa Việt Nam.]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="394" splitType="Stretch">
+			<staticText>
+				<reportElement x="14" y="0" width="279" height="13" uuid="d4fbf0d8-034f-41f3-966f-058ab88039ce"/>
+				<text><![CDATA[Căn cứ nhu cầu và khả năng của hai bên.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="14" y="14" width="46" height="20" uuid="17eeb523-ca79-4370-87a5-e4a415251d95"/>
+				<text><![CDATA[Hôm nay,]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="192" y="14" width="113" height="20" uuid="bb98c32f-6744-4847-86f2-197c3fe521d5"/>
+				<text><![CDATA[đại diện hai bên gồm có:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="34" width="100" height="15" uuid="cbbb1a2e-556f-4121-89a3-8a4b4eab245d"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[I/Phía Công Ty:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="49" width="89" height="21" uuid="365dfc84-464d-4aa5-9399-7623a43311e1"/>
+				<text><![CDATA[Đại diện Ông (Bà):]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="70" width="34" height="20" uuid="717f86f6-6cfa-4ca3-8814-517df0238162"/>
+				<text><![CDATA[Địa chỉ: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="202" y="49" width="42" height="21" uuid="bdc3b579-267a-47f1-bac3-e28f7968374e"/>
+				<text><![CDATA[Chức vụ:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="202" y="70" width="27" height="20" uuid="01e91039-50e7-4cb2-8e12-bf15df1fb490"/>
+				<text><![CDATA[SĐT:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="90" width="100" height="15" uuid="4e283806-5d97-43a3-be3b-d0542ff31177"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[II/Phía Khách Hàng:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="105" width="89" height="19" uuid="0ec68a04-659f-4128-b47b-5a75086ebf96"/>
+				<text><![CDATA[Đại diện Ông (Bà):]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="124" width="34" height="20" uuid="3b2c8967-9f99-43bd-a113-70f42236dec0"/>
+				<text><![CDATA[Địa chỉ: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="202" y="105" width="29" height="19" uuid="d347d36d-c9d2-4f54-8682-2f7756ef5e2a"/>
+				<text><![CDATA[SĐT:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="202" y="124" width="30" height="20" uuid="9e39090c-862f-434e-94fa-75058b80d972"/>
+				<text><![CDATA[Email:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="244" y="70" width="126" height="20" uuid="34adb5aa-cd49-47f7-a922-5f678649ead1"/>
+				<textFieldExpression><![CDATA[$F{NhanVien_SDT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="244" y="50" width="191" height="20" uuid="eed60770-f72d-4d81-8d70-4844540af11b"/>
+				<textFieldExpression><![CDATA[$F{ChucVu_TenChucVu}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="49" width="102" height="20" uuid="c543443c-abbb-40c2-bde8-59c86d9671e8"/>
+				<textFieldExpression><![CDATA[$F{NhanVien_TenNhanVien}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="105" width="102" height="20" uuid="94d3bf4d-47fc-426a-84fc-9b401c4dc3ec"/>
+				<textFieldExpression><![CDATA[$F{KhachHang_TenKhachHang}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="45" y="124" width="135" height="20" uuid="c3bd33ed-dd6d-4ca2-adcf-82fe07ae3852"/>
+				<textFieldExpression><![CDATA[$F{KhachHang_DiaChi}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="232" y="125" width="188" height="20" uuid="12b1b675-6b30-443b-92d5-875600a4ef5e"/>
+				<textFieldExpression><![CDATA[$F{KhachHang_Email}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="232" y="105" width="138" height="20" uuid="851e72fd-0513-4bfa-8cb9-d0c445b8b5c9"/>
+				<textFieldExpression><![CDATA[$F{KhachHang_SDT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="45" y="70" width="147" height="20" uuid="88dc359c-dd09-4772-8d05-42f24ea3d993"/>
+				<textFieldExpression><![CDATA[$F{NhanVien_DiaChi}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="144" width="262" height="20" uuid="8063c6c2-6ac7-4768-8fe8-45023ddba907"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ĐIỀU 1: CHƯƠNG TRÌNH THAM QUAN TOUR DU LỊCH :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="262" y="144" width="262" height="20" forecolor="#000066" uuid="ed64c050-2b6a-4d2d-84b7-ea55c3f30eb2"/>
+				<textElement>
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Tour_TenTour}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="14" y="164" width="276" height="20" uuid="4ce17a33-d854-4440-a03e-e920890d092a"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<pen lineStyle="Dashed"/>
+					<topPen lineStyle="Dashed"/>
+					<leftPen lineStyle="Dashed"/>
+					<bottomPen lineStyle="Dashed"/>
+					<rightPen lineStyle="Dashed"/>
+				</box>
+				<textElement>
+					<font isItalic="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Phía bên Công ty tổ chức cho bên Khách hàng chương trình:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="14" y="374" width="498" height="18" uuid="6682e76e-a618-4747-b696-a29f83786ecc"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Lịch Trình Chi Tiết Cụ Thể Như Sau:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="14" y="184" width="498" height="18" uuid="ee801aaa-5738-4cf8-9783-39fc9ed5dfce"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+				<text><![CDATA[• Mức ăn chính: 200.000đ/bữa chính Theo chương trình + Ăn sáng 55.000đ/bữa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="14" y="238" width="371" height="16" uuid="b377f725-3986-45f4-971a-b0c4a1451b04"/>
+				<text><![CDATA[• Hướng Dẫn Viên: Chuyên nghiệp, phục vụ nhiệt tình, thành thạo,chu đáo suốt tuyến
+
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="14" y="202" width="498" height="18" uuid="7b0888ca-44d4-44f3-8ea6-fe011fda1748"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+				<text><![CDATA[• Phương Tiện: Xe ô tô đời mới có máy lạnh hiện đại, tivi, ghế ngả…, Lái xe nhiệt tình vui vẻ]]></text>
+			</staticText>
+			<subreport>
+				<reportElement x="14" y="220" width="541" height="18" uuid="3cee97fd-f572-475d-a4a3-490cee9da4a9"/>
+				<subreportParameter name="MaHopDong">
+					<subreportParameterExpression><![CDATA[$P{MaHopDong}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="MaTour">
+					<subreportParameterExpression><![CDATA[$P{MaTour}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "XuatHopDong_SubTenKS.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement x="14" y="254" width="463" height="20" uuid="a3bfe5cc-a9e6-4224-8605-f413be19fddd"/>
+				<text><![CDATA[•Phòng Nghỉ Khách Sạn: tiêu chuẩn từ **** đến *****   Nghỉ từ 2 - 4 người/phòng]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="14" y="274" width="463" height="20" uuid="fc2b3827-d061-4c48-9d2b-dc09f23d6364"/>
+				<text><![CDATA[•Hướng Dẫn Viên: Chuyên nghiệp, phục vụ nhiệt tình, thành thạo,chu đáo suốt tuyến]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="14" y="294" width="463" height="20" uuid="29a47054-5120-4133-962b-4d40cf2c7ad6"/>
+				<text><![CDATA[•Vé thăm quan: Khách được mua tiền vé vào cửa các thắng cảnh có trong tour]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="14" y="314" width="325" height="20" uuid="a7d90cdd-2e7b-46c2-8adb-bd6bcc05a2ae"/>
+				<text><![CDATA[•Tàu thuyền tham quan theo chương trình]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="14" y="334" width="339" height="20" uuid="beb66a96-42f5-426e-b8b8-4c953603d3c7"/>
+				<text><![CDATA[•Bảo hiểm du lịch theo quy định của Tổng Cục Du Lịch]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="14" y="354" width="356" height="20" uuid="b291db69-5434-40ca-aa6b-b54c25146dbf"/>
+				<text><![CDATA[•Nước uống trên xe, thuốc chống say…]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="60" y="14" width="132" height="20" uuid="68368bb4-b5ab-4923-b3c6-70e697e1012d"/>
+				<textFieldExpression><![CDATA[$F{ThoiGian}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="102" splitType="Stretch">
+			<subreport>
+				<reportElement x="14" y="0" width="385" height="100" uuid="59ed7e24-087b-4bdd-a8ff-065dc7fc8ffd"/>
+				<subreportParameter name="MaHopDong">
+					<subreportParameterExpression><![CDATA[$P{MaHopDong}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="MaVe">
+					<subreportParameterExpression><![CDATA[$P{MaVe}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="MaTour">
+					<subreportParameterExpression><![CDATA[$P{MaTour}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "XuatHopDong_SubLT.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="638" splitType="Stretch">
+			<subreport>
+				<reportElement x="2" y="0" width="460" height="100" uuid="fd17cc2a-2059-417d-a37b-4928406752ff"/>
+				<subreportParameter name="MaHopDong">
+					<subreportParameterExpression><![CDATA[$P{MaHopDong}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="MaVe">
+					<subreportParameterExpression><![CDATA[$P{MaVe}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="MaTour">
+					<subreportParameterExpression><![CDATA[$P{MaTour}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "Sub_ThoiGianDiChuyen.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</summary>
+</jasperReport>

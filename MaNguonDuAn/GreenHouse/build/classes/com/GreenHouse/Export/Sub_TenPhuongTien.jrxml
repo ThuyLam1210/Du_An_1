@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Sub_TenPhuongTien" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="63780cb4-fe69-4692-855d-61a426fbf825">
+	<property name="ireport.zoom" value="2.3579476910000023"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="MaTour" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     Tour."MaTour" AS Tour_MaTour,
+     Tour."TenTour" AS Tour_TenTour,
+     Tour."SoNgay" AS Tour_SoNgay,
+     Tour."SoDem" AS Tour_SoDem,
+     Tour."GiaTour" AS Tour_GiaTour,
+     Tour."SoLuongKhach" AS Tour_SoLuongKhach,
+     Tour."HinhAnh" AS Tour_HinhAnh,
+     SetPhuongTien."MaPhuongTien" AS SetPhuongTien_MaPhuongTien,
+     SetPhuongTien."MaTour" AS SetPhuongTien_MaTour,
+     PhuongTien."TenPhuongTien" AS PhuongTien_TenPhuongTien,
+     PhuongTien."BienSo" AS PhuongTien_BienSo
+FROM
+     "dbo"."Tour" Tour INNER JOIN "dbo"."SetPhuongTien" SetPhuongTien ON Tour."MaTour" = SetPhuongTien."MaTour"
+     INNER JOIN "dbo"."PhuongTien" PhuongTien ON SetPhuongTien."MaPhuongTien" = PhuongTien."MaPhuongTien"
+where Tour.MaTour = $P{MaTour}]]>
+	</queryString>
+	<field name="Tour_MaTour" class="java.lang.String"/>
+	<field name="Tour_TenTour" class="java.lang.String"/>
+	<field name="Tour_SoNgay" class="java.lang.Integer"/>
+	<field name="Tour_SoDem" class="java.lang.Integer"/>
+	<field name="Tour_GiaTour" class="java.math.BigDecimal"/>
+	<field name="Tour_SoLuongKhach" class="java.lang.Integer"/>
+	<field name="Tour_HinhAnh" class="java.lang.String"/>
+	<field name="SetPhuongTien_MaPhuongTien" class="java.lang.String"/>
+	<field name="SetPhuongTien_MaTour" class="java.lang.String"/>
+	<field name="PhuongTien_TenPhuongTien" class="java.lang.String"/>
+	<field name="PhuongTien_BienSo" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="124" height="20" uuid="b41e9390-2c79-4a2e-893c-33ed2af37bc2"/>
+				<text><![CDATA[• Phương Tiện Di Chuyển:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="124" y="0" width="100" height="20" uuid="b26b4c07-369c-43da-862e-3daa62ea376d"/>
+				<textFieldExpression><![CDATA[$F{PhuongTien_TenPhuongTien}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="224" y="0" width="43" height="20" uuid="4ebb880f-8500-4b3d-99a4-b62c1376932d"/>
+				<text><![CDATA[Biển Số:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="267" y="0" width="100" height="20" uuid="0742d391-b51d-431a-967d-e6eaf29af35e"/>
+				<textFieldExpression><![CDATA[$F{PhuongTien_BienSo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

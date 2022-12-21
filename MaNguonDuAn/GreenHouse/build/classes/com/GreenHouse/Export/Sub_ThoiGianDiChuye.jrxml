@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Sub_ThoiGianDiChuye" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="65f5dc0b-4181-45b9-a230-358cfa9dfc65">
+	<property name="ireport.zoom" value="1.4641000000000013"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="MaTour" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Users\\Thuy\\Desktop\\BackUp_DuAn1\\GreenHouse\\src\\com\\GreenHouse\\Export\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     LichTrinh."NgayKhoiHanh" AS LichTrinh_NgayKhoiHanh,
+     LichTrinh."NgayKetThuc" AS LichTrinh_NgayKetThuc,
+     LichTrinh."NoiXuatPhat" AS LichTrinh_NoiXuatPhat,
+     LichTrinh."NoiDen" AS LichTrinh_NoiDen,
+     Tour."MaTour" AS Tour_MaTour
+FROM
+     "dbo"."LichTrinh" LichTrinh INNER JOIN "dbo"."LichTrinhChiTiet" LichTrinhChiTiet ON LichTrinh."MaLichTrinh" = LichTrinhChiTiet."MaLichTrinh"
+     INNER JOIN "dbo"."Tour" Tour ON LichTrinhChiTiet."MaTour" = Tour."MaTour" where Tour.MaTour = $P{MaTour}]]>
+	</queryString>
+	<field name="LichTrinh_NgayKhoiHanh" class="java.sql.Date"/>
+	<field name="LichTrinh_NgayKetThuc" class="java.sql.Date"/>
+	<field name="LichTrinh_NoiXuatPhat" class="java.lang.String"/>
+	<field name="LichTrinh_NoiDen" class="java.lang.String"/>
+	<field name="Tour_MaTour" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="121" splitType="Stretch">
+			<staticText>
+				<reportElement x="10" y="21" width="100" height="20" uuid="00f936ab-bc31-441d-b6c0-db6f34b0a378"/>
+				<text><![CDATA[Thời gian thực hiện:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="231" y="21" width="48" height="20" uuid="237bbe92-7c4f-4dfc-8cb3-536e70c33f7c"/>
+				<text><![CDATA[Đến ngày:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy h.mm a">
+				<reportElement x="110" y="21" width="121" height="20" uuid="9cadd01c-d1dd-4192-b299-ca0ddce40e18"/>
+				<textFieldExpression><![CDATA[$F{LichTrinh_NgayKhoiHanh}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy h.mm a">
+				<reportElement x="279" y="21" width="146" height="20" uuid="e0ce9938-e110-427b-b0c3-fe147451e490"/>
+				<textFieldExpression><![CDATA[$F{LichTrinh_NgayKetThuc}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="10" y="41" width="141" height="20" uuid="1e5c7b7c-e302-4b9e-8d92-cb875e824e19"/>
+				<text><![CDATA[Điểm đón: 01 điểm, cụ thể tại:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="151" y="41" width="100" height="20" uuid="7a150bb0-03a0-4132-9121-dda9fb38b466"/>
+				<textFieldExpression><![CDATA[$F{LichTrinh_NoiXuatPhat}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="10" y="61" width="53" height="20" uuid="4bbb94c2-bee5-4084-bccb-d09d3365784b"/>
+				<text><![CDATA[Điểm đến:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="63" y="61" width="100" height="20" uuid="73d2ea77-28d6-4f48-9b18-bec7adcd3847"/>
+				<textFieldExpression><![CDATA[$F{LichTrinh_NoiDen}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="10" y="81" width="236" height="20" uuid="6d501877-ab92-449b-a61d-7fc90884f7c5"/>
+				<text><![CDATA[Mọi thắc mắc liên hệ: (Hotline) +84 886 077 296]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="99" width="530" height="20" uuid="ed449391-9551-4793-9a92-83fbb4de0e85"/>
+				<textElement>
+					<font isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Để đảm bảo tài sản và sự an toàn của Quý Khách, lái xe của công ty sẽ trả khách tại điểm mà xe đón khách lúc đầu.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="162" height="20" uuid="6b0b8c5d-967b-45e6-88ab-06aef192f11e"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ĐIỀU 2: THỜI GIAN THỰC HIỆN
+]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

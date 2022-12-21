@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="XuatHopDong_SubTenKS" language="groovy" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="2f8a866f-fefb-4e05-9202-c901abc6feb3">
+	<property name="ireport.zoom" value="1.9487171000000014"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="MaTour" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     Tour."MaTour" AS Tour_MaTour,
+     KhachSan."TenKhachSan" AS KhachSan_TenKhachSan,
+     KhachSan."SDT" AS KhachSan_SDT,
+     KhachSan."DiaChi" AS KhachSan_DiaChi,
+     KhachSan."Tinh" AS KhachSan_Tinh
+FROM
+     "dbo"."Tour" Tour INNER JOIN "dbo"."SetKhachSan" SetKhachSan ON Tour."MaTour" = SetKhachSan."MaTour"
+     INNER JOIN "dbo"."KhachSan" KhachSan ON SetKhachSan."MaKhachSan" = KhachSan."MaKhachSan" where Tour.MaTour = $P{MaTour}]]>
+	</queryString>
+	<field name="Tour_MaTour" class="java.lang.String"/>
+	<field name="KhachSan_TenKhachSan" class="java.lang.String"/>
+	<field name="KhachSan_SDT" class="java.lang.String"/>
+	<field name="KhachSan_DiaChi" class="java.lang.String"/>
+	<field name="KhachSan_Tinh" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="24" splitType="Stretch">
+			<staticText>
+				<reportElement x="1" y="0" width="67" height="20" uuid="d59a9467-13b0-4055-9fc6-12e9f1cfe303"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+				<text><![CDATA[• Khách Sạn: ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="68" y="4" width="147" height="20" uuid="9dfd6606-e35e-4e98-bcae-2f4d4fd5fad3"/>
+				<textFieldExpression><![CDATA[$F{KhachSan_TenKhachSan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="244" y="4" width="100" height="20" uuid="7142e2c1-1616-4e56-aac9-d5b5757506ab"/>
+				<textFieldExpression><![CDATA[$F{KhachSan_SDT}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="215" y="4" width="29" height="20" uuid="802f72bb-3a18-43fa-8c75-85403c636c54"/>
+				<text><![CDATA[SĐT:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="386" y="4" width="109" height="20" uuid="2b85c37b-2648-4565-bc35-14f571f2bba6"/>
+				<textFieldExpression><![CDATA[$F{KhachSan_Tinh}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="344" y="4" width="42" height="20" uuid="3349e900-bd01-403a-a4da-b710bc75d954"/>
+				<text><![CDATA[Địa Chỉ: ]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

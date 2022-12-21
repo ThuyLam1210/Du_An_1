@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Sub_ThoiGianDiChuyen" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="6b11714a-67a7-42f5-a6ab-8f19548f4f54">
+	<property name="ireport.zoom" value="1.7715610000000013"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="MaVe" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     Ve."MaTour" AS Ve_MaTour,
+     Ve."SoLuongVeNguoiLon" AS Ve_SoLuongVeNguoiLon,
+     Ve."SoLuongVeTreEm" AS Ve_SoLuongVeTreEm,
+     Ve."TongTien" AS Ve_TongTien,
+     Ve."NgayBan" AS Ve_NgayBan,
+ Ve."TongTien" * 0.5 AS NuaTongTien,
+     LichTrinh."NgayKhoiHanh" AS LichTrinh_NgayKhoiHanh,
+     LichTrinh."NgayKetThuc" AS LichTrinh_NgayKetThuc,
+     LichTrinh."NoiXuatPhat" AS LichTrinh_NoiXuatPhat,
+     LichTrinh."NoiDen" AS LichTrinh_NoiDen,
+     Tour."MaTour" AS Tour_MaTour,
+     Tour."TenTour" AS Tour_TenTour,
+     Tour."GiaTour" AS Tour_GiaTour,
+     Tour."SoLuongKhach" AS Tour_SoLuongKhach
+FROM
+     "dbo"."Tour" Tour INNER JOIN "dbo"."Ve" Ve ON Tour."MaTour" = Ve."MaTour",
+     "dbo"."LichTrinh" LichTrinh where Ve.MaVe = $P{MaVe}  AND Ve.MaTour = Tour.MaTour
+	 AND Ve.MaLichTrinh = LichTrinh.MaLichTrinh]]>
+	</queryString>
+	<field name="Ve_MaTour" class="java.lang.String"/>
+	<field name="Ve_SoLuongVeNguoiLon" class="java.lang.Integer"/>
+	<field name="Ve_SoLuongVeTreEm" class="java.lang.Integer"/>
+	<field name="Ve_TongTien" class="java.math.BigDecimal"/>
+	<field name="Ve_NgayBan" class="java.sql.Date"/>
+	<field name="NuaTongTien" class="java.math.BigDecimal"/>
+	<field name="LichTrinh_NgayKhoiHanh" class="java.sql.Date"/>
+	<field name="LichTrinh_NgayKetThuc" class="java.sql.Date"/>
+	<field name="LichTrinh_NoiXuatPhat" class="java.lang.String"/>
+	<field name="LichTrinh_NoiDen" class="java.lang.String"/>
+	<field name="Tour_MaTour" class="java.lang.String"/>
+	<field name="Tour_TenTour" class="java.lang.String"/>
+	<field name="Tour_GiaTour" class="java.math.BigDecimal"/>
+	<field name="Tour_SoLuongKhach" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="802" splitType="Stretch">
+			<staticText>
+				<reportElement x="13" y="60" width="53" height="20" uuid="a6657620-bff9-48c9-9093-c92f51b9bfc6"/>
+				<text><![CDATA[Điểm đến:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="98" width="530" height="20" uuid="5f9c0339-2bd8-4914-90bd-a4a736edaee2"/>
+				<textElement>
+					<font isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Để đảm bảo tài sản và sự an toàn của Quý Khách, lái xe của công ty sẽ trả khách tại điểm mà xe đón khách lúc đầu.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="162" height="20" uuid="72c2c357-d456-43b0-8c2c-c78d8c5109a2"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ĐIỀU 2: THỜI GIAN THỰC HIỆN
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="20" width="100" height="20" uuid="847ca7b1-c579-4695-913f-5f17644e8e6d"/>
+				<text><![CDATA[Thời gian thực hiện:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="40" width="141" height="20" uuid="1cd913c1-80ba-410b-a4f4-da1439ef8b39"/>
+				<text><![CDATA[Điểm đón: 01 điểm, cụ thể tại:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="80" width="236" height="20" uuid="56783da7-b7fb-4d35-9a4a-54d461cc6d8c"/>
+				<text><![CDATA[Mọi thắc mắc liên hệ: (Hotline) +84 886 077 296]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy h.mm a">
+				<reportElement x="113" y="20" width="136" height="20" uuid="23029e0a-b32b-4792-bb17-e8618e6cb12c"/>
+				<textFieldExpression><![CDATA[$F{LichTrinh_NgayKhoiHanh}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="154" y="40" width="100" height="20" uuid="92a4671f-4e12-4fd4-9596-e13a12613c75"/>
+				<textFieldExpression><![CDATA[$F{LichTrinh_NoiXuatPhat}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="66" y="60" width="100" height="20" uuid="18139d75-a783-43a8-b27e-af06dab6a5db"/>
+				<textFieldExpression><![CDATA[$F{LichTrinh_NoiDen}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="11" y="198" width="322" height="20" uuid="bfdb04d6-6e06-4fc1-9c50-a588afbff078"/>
+				<text><![CDATA[Bảo hiểm du lịch: Mức đền bù tối đa 50%giá trị hợp đồng/ người/ vụ.
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="178" width="64" height="20" uuid="059e25b1-c7ae-49ab-9f77-2a2d69954248"/>
+				<text><![CDATA[Tổng số tiền:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="175" y="178" width="158" height="20" uuid="f3f068c0-44eb-45a0-9dd2-524b7f50a4c5"/>
+				<text><![CDATA[ VNĐ  (Đã bao gồm 10% VAT)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="138" width="126" height="20" uuid="9cddfe94-a1cd-45d6-8b94-f6eab2269b72"/>
+				<text><![CDATA[Số lượng khách người lớn:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="118" width="154" height="20" uuid="9afe0ee0-6be6-4fdc-923e-8d4b5ba1472a"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ĐIỀU 3: GIÁ TRỊ HỢP ĐỒNG]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="158" width="126" height="20" uuid="501be9ee-9540-4d8e-b673-b3b884043385"/>
+				<text><![CDATA[Số lượng khách trẻ em:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="137" y="138" width="100" height="20" uuid="34024854-d86b-4b91-9c29-5a4f72baaae1"/>
+				<textFieldExpression><![CDATA[$F{Ve_SoLuongVeNguoiLon}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="137" y="158" width="100" height="20" uuid="4ccac7f7-034e-4654-9584-c9929f0b83ea"/>
+				<textFieldExpression><![CDATA[$F{Ve_SoLuongVeTreEm}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="75" y="178" width="100" height="20" uuid="9bf8d1c6-4015-4966-a029-94d7eba0644d"/>
+				<textFieldExpression><![CDATA[$F{Ve_TongTien}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="14" y="238" width="453" height="20" uuid="7de75388-893d-4f6f-b1f3-9cb4e79545f4"/>
+				<text><![CDATA[Bên Khách hàng tạm ứng cho bên phía Công ty số tiền bằng 50% tổng giá trị hợp đồng:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="14" y="278" width="140" height="20" uuid="7c5bd969-3c75-402b-928f-f58a7637408e"/>
+				<text><![CDATA[- Lần 2: Tổng số tiền còn lại: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="218" width="114" height="20" uuid="c3e6bf5e-527b-442c-a034-ff94ccd89d4b"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ĐIỀU 4: THANH TOÁN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="14" y="298" width="453" height="20" uuid="fb6165f0-39a5-479e-8f5d-389098b89763"/>
+				<text><![CDATA[Chuyển vào Tài khoản: 0886077296 (Chủ Tài Khoản:LAM DIEM THUY) Tại ngân hàng Quân Đội MB Bank]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="17" y="334" width="450" height="16" uuid="2532563e-563e-46eb-a5dd-a3bdc1ce3b7c"/>
+				<textElement>
+					<font isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Hình thức thanh toán: Chuyển Khoản]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="14" y="258" width="89" height="20" uuid="529aea1c-8639-414a-800f-587b1e2596db"/>
+				<text><![CDATA[- Lần 1: Tạm ứng:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="17" y="318" width="450" height="16" uuid="fc23558f-d7cc-4162-a5a6-bf9229ddcce9"/>
+				<textElement>
+					<font isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Sẽ thanh toán sau khi đoàn thực hiện xong hợp đồng 07 ngày, kèm theo Thanh lý hợp đồng.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="249" y="278" width="237" height="20" uuid="549eaaee-cd9b-4c31-9388-dd2138d2a777"/>
+				<text><![CDATA[ VNĐ  (Bằng chữ: ...............................................)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="211" y="258" width="269" height="20" uuid="fa9cd6ca-5124-4520-a64c-8e01100960aa"/>
+				<text><![CDATA[ VNĐ  (Bằng chữ: ...........................................................)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="249" y="20" width="48" height="20" uuid="3112ccc7-13f1-402e-b0f9-8bccc17bd22d"/>
+				<text><![CDATA[Đến ngày:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy h.mm a">
+				<reportElement x="297" y="20" width="147" height="20" uuid="5a9d61c3-0998-4ea3-9d44-43f1539eaaae"/>
+				<textFieldExpression><![CDATA[$F{LichTrinh_NgayKetThuc}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="103" y="258" width="108" height="20" uuid="7d64eabd-a815-4088-9df9-187a63fb3710"/>
+				<textFieldExpression><![CDATA[$F{NuaTongTien}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="154" y="278" width="95" height="20" uuid="07dd7c32-2624-4617-9a3d-c97010d322a8"/>
+				<textFieldExpression><![CDATA[$F{NuaTongTien}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="14" y="500" width="515" height="35" uuid="60e50f18-67ee-4976-8160-d94f2895531e"/>
+				<text><![CDATA[Trong trường hợp vì một lý do bất khả kháng nào đó (bão lụt, hoả hoạn, thiên tai, chiến tranh,…) hợp đồng không thể thực hiện thì các bên cùng nhau bàn bạc giải quyết trên tinh thần bình đẳng giữa hai bên.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="17" y="616" width="512" height="44" uuid="24725b50-345f-40da-8317-19e694061742"/>
+				<textElement textAlignment="Justified"/>
+				<text><![CDATA[Bên Khách hàng thanh toán đầy đủ, đúng hạn cho bên Công ty tổng giá trị hợp đồng theo phương thức đã nêu trên. Nếu phát sinh chi phí cho việc làm hay yêu cầu của bên Khách hàng thì bên Khách hàng phải thanh toán thêm khoản chi phí đó cho bên Công ty.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="17" y="689" width="512" height="18" uuid="2887902c-1914-4170-8882-1642186009c3"/>
+				<text><![CDATA[Những phụ lục hợp đồng kèm theo có giá trị pháp lý như bản hợp đồng này]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="17" y="660" width="512" height="29" uuid="cee7297d-d93d-45c2-a499-a56aef47ebc0"/>
+				<textElement textAlignment="Justified"/>
+				<text><![CDATA[Trong quá trình thực hiên hợp đồng, mọi phát sinh tranh chấp đều được hai bên cùng nhau bàn bạc và giải quyết trên tinh thần bình đẳng hai bên đều có lợi.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="14" y="407" width="495" height="34" uuid="0fa006bb-e903-4870-a1a5-99a508576e27"/>
+				<text><![CDATA[Hai bên cam kết thực hiện hợp đồng, nếu một trong hai bên có thay đổi, huỷ bỏ phải báo trước cho bên kia 10 ngày trước khi khởi hành.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="17" y="746" width="512" height="38" uuid="7b2cc532-89fb-4675-8d64-289f0c185ad8"/>
+				<textElement textAlignment="Justified"/>
+				<text><![CDATA[Hai bên cam kết thực hiện đúng những điều khoản như trong hợp đồng, bên nào thực hiện sai gây tổn hại về thời gian, vật chất cho bên kia thì phải chịu trách nhiệm bồi hoàn phần tổn hại đó cho bên kia theo quy định trước pháp luật.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="535" width="184" height="20" uuid="3e861169-1f8c-4164-a0f5-45420be28a79"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ĐIỀU 6: THỰC HIỆN CỦA HAI BÊN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="14" y="441" width="515" height="59" uuid="f09fac28-b003-496d-9e59-25d61c7f383e"/>
+				<text><![CDATA[Trong trường hợp báo huỷ trước 8 - 10 ngày trước khi khởi hành, bên báo huỷ phải chịu phạt 30% tổng giá trị hợp đồng; báo huỷ trước 5 - 7 ngày, thì phải chịu phạt 50% tổng giá trị hợp đồng; Báo huỷ trước 2 - 4 ngày thì phải chịu phạt 70% tổng giá trị hợp đồng; Báo huỷ trong vòng 24h trước giờ khởi hành thì phải chịu phạt 100% tổng giá trị hợp đồng. Mọi thay đổi, báo huỷ phải được thông báo bằng văn bản và được sự chấp thuận của bên kia.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="17" y="353" width="495" height="34" uuid="f5804b5c-31a4-4eab-bad4-4f0ec3281491"/>
+				<text><![CDATA[Sau khi bên Công ty thực hiện xong hợp đồng. Bên Khách Hàng có trách nhiệm thanh toán đầy đủ số tiền còn lại theo số lượng thực tế cho bên Công ty.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="17" y="555" width="512" height="61" uuid="cb301ff2-e49b-4f09-b2e4-f78994c5a2c7"/>
+				<textElement textAlignment="Justified"/>
+				<text><![CDATA[Bên Công ty có trách nhiệm thông báo chi tiết và xác nhận về lượng khách kèm theo danh sách trích ngang, địa điểm, thời gian, và thông tin liên quan của đoàn khách trước 03 ngày khởi hành cho bên phía Khách Hàng. Bên Công ty có trách nhiệm đưa đón, phục vụ đoàn khách của bên Khách Hàng đúng như trong lộ trình chi tiết của phụ lục kèm theo hợp đồng, bảo đảo chất lượng dịch vụ theo hợp đồng.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="387" width="195" height="20" uuid="c49a8f9e-3a37-4100-8938-f02c211335bf"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ĐIỀU 5: ĐIỀU KIỆN PHẠT HUỶ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="17" y="707" width="512" height="39" uuid="f8d739db-2592-4bf6-b36c-7e862e5ca319"/>
+				<textElement textAlignment="Justified"/>
+				<text><![CDATA[Hai bên cam kết thực hiện đúng những điều khoản như trong hợp đồng, bên nào thực hiện sai gây tổn hại về thời gian, vật chất cho bên kia thì phải chịu trách nhiệm bồi hoàn phần tổn hại đó cho bên kia theo quy định trước pháp luật.]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="802" splitType="Stretch">
+			<staticText>
+				<reportElement x="56" y="44" width="119" height="20" uuid="7664c637-81b7-4950-8acb-e55f7c856ccc"/>
+				<textElement>
+					<font size="8" isItalic="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[    (Ký, ghi rõ họ tên, đóng dấu)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="56" y="29" width="131" height="15" uuid="98da0a91-5c19-462e-af54-7990bb177bf5"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[ĐẠI DIỆN BÊN KHÁCH HÀNG]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="353" y="44" width="127" height="20" uuid="0d6acc67-8a7c-4df7-a60e-34f2295f8878"/>
+				<textElement>
+					<font size="8" isItalic="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[    (Ký, ghi rõ họ tên, đóng dấu)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="353" y="29" width="114" height="15" uuid="ac0877b4-4acc-4a03-9a9d-14fe37b35e8e"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[ĐẠI DIỆN BÊN CÔNG TY]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

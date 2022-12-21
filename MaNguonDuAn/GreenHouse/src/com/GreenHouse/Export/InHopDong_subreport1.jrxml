@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="InHopDong_subreport1" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="d646da62-c4ca-4f47-8556-24b83a768165">
+	<property name="ireport.zoom" value="1.3310000000000015"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="MaTour" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Users\\Thuy\\Desktop\\DuAn1\\BackUp_DuAn1\\GreenHouse\\src\\com\\GreenHouse\\Export\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     Tour."MaTour" AS Tour_MaTour,
+     Tour."TenTour" AS Tour_TenTour,
+     Tour."SoNgay" AS Tour_SoNgay,
+     Tour."SoDem" AS Tour_SoDem,
+     Tour."GiaTour" AS Tour_GiaTour,
+     Tour."SoLuongKhach" AS Tour_SoLuongKhach,
+     Tour."HinhAnh" AS Tour_HinhAnh,
+     LichTrinhChiTiet."MaLichTrinh" AS LichTrinhChiTiet_MaLichTrinh,
+     LichTrinhChiTiet."MaTour" AS LichTrinhChiTiet_MaTour,
+     LichTrinhChiTiet."NoiThamQuan" AS LichTrinhChiTiet_NoiThamQuan,
+     LichTrinhChiTiet."MocThoiGian" AS LichTrinhChiTiet_MocThoiGian,
+     LichTrinhChiTiet."GhiChu" AS LichTrinhChiTiet_GhiChu
+FROM
+     "dbo"."LichTrinhChiTiet" LichTrinhChiTiet INNER JOIN "Tour" Tour ON LichTrinhChiTiet."MaTour" = Tour."MaTour"
+     AND Tour."MaTour" = LichTrinhChiTiet."MaTour"
+     INNER JOIN "dbo"."LichTrinh" LichTrinh ON LichTrinhChiTiet."MaLichTrinh" = LichTrinh."MaLichTrinh"
+WHERE
+     Tour.MaTour = $P{MaTour}]]>
+	</queryString>
+	<field name="Tour_MaTour" class="java.lang.String"/>
+	<field name="Tour_TenTour" class="java.lang.String"/>
+	<field name="Tour_SoNgay" class="java.lang.Integer"/>
+	<field name="Tour_SoDem" class="java.lang.Integer"/>
+	<field name="Tour_GiaTour" class="java.math.BigDecimal"/>
+	<field name="Tour_SoLuongKhach" class="java.lang.Integer"/>
+	<field name="Tour_HinhAnh" class="java.lang.String"/>
+	<field name="LichTrinhChiTiet_MaLichTrinh" class="java.lang.String"/>
+	<field name="LichTrinhChiTiet_MaTour" class="java.lang.String"/>
+	<field name="LichTrinhChiTiet_NoiThamQuan" class="java.lang.String"/>
+	<field name="LichTrinhChiTiet_MocThoiGian" class="java.sql.Timestamp"/>
+	<field name="LichTrinhChiTiet_GhiChu" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="227" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="262" height="20" uuid="112f9d40-a76e-443c-935d-f6051423670b"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ĐIỀU 1: CHƯƠNG TRÌNH THAM QUAN TOUR DU LỊCH :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="14" y="20" width="276" height="20" uuid="fe4f7b22-8c07-417d-bc73-5aab919fc489"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<pen lineStyle="Dashed"/>
+					<topPen lineStyle="Dashed"/>
+					<leftPen lineStyle="Dashed"/>
+					<bottomPen lineStyle="Dashed"/>
+					<rightPen lineStyle="Dashed"/>
+				</box>
+				<textElement>
+					<font isItalic="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Phía bên Công ty tổ chức cho bên Khách hàng chương trình:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="262" y="0" width="262" height="20" forecolor="#000066" uuid="b564de11-2673-499a-a97c-90b0f891509a"/>
+				<textElement>
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Tour_TenTour}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="310" y="207" width="185" height="20" uuid="fe1ed1d8-c46f-4ae2-944e-4efd7832a509"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<pen lineWidth="0.5" lineStyle="Solid"/>
+					<topPen lineWidth="0.5" lineStyle="Solid"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Ghi Chú]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="125" y="207" width="185" height="20" uuid="48d3f544-b37a-4a66-943f-63f2c7a84815"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<pen lineWidth="0.5" lineStyle="Solid"/>
+					<topPen lineWidth="0.5" lineStyle="Solid"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Nơi Tham Quan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="14" y="207" width="111" height="20" uuid="a3a7e406-40ac-4e59-97f4-0e4fab808f41"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<pen lineWidth="0.5" lineStyle="Solid"/>
+					<topPen lineWidth="0.5" lineStyle="Solid"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Thời Gian Di Chuyển]]></text>
+			</staticText>
+			<subreport>
+				<reportElement x="14" y="40" width="510" height="20" uuid="24ec4997-4e2a-44be-99d1-e855b263657f"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="MaTour">
+					<subreportParameterExpression><![CDATA[$P{MaTour}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "Sub_TenPhuongTien.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="14" y="60" width="510" height="17" uuid="820dc681-300c-48db-802d-a55e268d07e9"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="MaTour">
+					<subreportParameterExpression><![CDATA[$P{MaTour}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "Sub_KhachSan.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement x="14" y="77" width="498" height="18" uuid="19ee5bf7-34d9-467a-85ef-9f63ff060262"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+				<text><![CDATA[• Mức ăn chính: 200.000đ/bữa chính Theo chương trình + Ăn sáng 55.000đ/bữa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="14" y="95" width="364" height="94" uuid="a5e02e58-e0cd-45c1-bcca-43d6402eb5fb"/>
+				<text><![CDATA[• Hướng Dẫn Viên: Chuyên nghiệp, phục vụ nhiệt tình, thành thạo,chu đáo suốt tuyến
+• Vé thăm quan: Khách được mua tiền vé vào cửa các thắng cảnh có trong tour
+• Tàu thuyền tham quan theo chương trình
+• Bảo hiểm du lịch theo quy định của Tổng Cục Du Lịch
+• Nước uống trên xe, thuốc chống say…
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="14" y="189" width="498" height="18" uuid="6e01e3ce-df6e-46c9-b910-3054617a31e7"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Lịch Trình Chi Tiết Cụ Thể Như Sau:]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="23" splitType="Stretch">
+			<textField pattern="dd/MM/yyyy h.mm a">
+				<reportElement x="14" y="1" width="111" height="20" uuid="6100e0f5-1b8f-4059-b4cc-20f588bb0cf9"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<pen lineWidth="0.5" lineStyle="Solid"/>
+					<topPen lineWidth="0.5" lineStyle="Solid"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{LichTrinhChiTiet_MocThoiGian}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="125" y="1" width="185" height="20" uuid="6c185a29-fab1-4f2b-bb38-cb0adb1cb419"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<pen lineWidth="0.5" lineStyle="Solid"/>
+					<topPen lineWidth="0.5" lineStyle="Solid"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{LichTrinhChiTiet_NoiThamQuan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="310" y="1" width="185" height="20" uuid="baffb0e8-12e8-48d9-a066-c991e77ac7c1"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<pen lineWidth="0.5" lineStyle="Solid"/>
+					<topPen lineWidth="0.5" lineStyle="Solid"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{LichTrinhChiTiet_GhiChu}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="94" splitType="Stretch">
+			<subreport>
+				<reportElement x="-2" y="42" width="510" height="44" uuid="f35e6cc1-d4e1-49e3-9e85-afe12390b6e2"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="MaTour">
+					<subreportParameterExpression><![CDATA[$P{MaTour}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "Sub_TinhTien.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="-2" y="0" width="512" height="42" uuid="c9d37ff9-04a8-4a04-afc6-eb0b858e473d"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="MaTour">
+					<subreportParameterExpression><![CDATA[$P{MaTour}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "Sub_ThoiGianDiChuye.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</summary>
+</jasperReport>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="XuatHopDong_SubLT" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="50050f1a-1b31-40c4-bc6e-38eb0adb0b3c">
+	<property name="ireport.zoom" value="2.357947691000002"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="MaTour" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     Tour."MaTour" AS Tour_MaTour,
+     Tour."TenTour" AS Tour_TenTour,
+     LichTrinhChiTiet."MaTour" AS LichTrinhChiTiet_MaTour,
+     LichTrinhChiTiet."MocThoiGian" AS LichTrinhChiTiet_MocThoiGian,
+     LichTrinhChiTiet."NoiThamQuan" AS LichTrinhChiTiet_NoiThamQuan,
+     LichTrinhChiTiet."GhiChu" AS LichTrinhChiTiet_GhiChu
+FROM
+     "dbo"."Tour" Tour INNER JOIN "dbo"."LichTrinhChiTiet" LichTrinhChiTiet ON Tour."MaTour" = LichTrinhChiTiet."MaTour" 
+where Tour.MaTour = $P{MaTour}]]>
+	</queryString>
+	<field name="Tour_MaTour" class="java.lang.String"/>
+	<field name="Tour_TenTour" class="java.lang.String"/>
+	<field name="LichTrinhChiTiet_MaTour" class="java.lang.String"/>
+	<field name="LichTrinhChiTiet_MocThoiGian" class="java.sql.Timestamp"/>
+	<field name="LichTrinhChiTiet_NoiThamQuan" class="java.lang.String"/>
+	<field name="LichTrinhChiTiet_GhiChu" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21" splitType="Stretch">
+			<staticText>
+				<reportElement x="8" y="0" width="113" height="20" uuid="0f4f13a9-b90e-4f24-b463-162bcf7f030b"/>
+				<box>
+					<pen lineWidth="0.25" lineStyle="Double"/>
+					<topPen lineWidth="0.25" lineStyle="Double"/>
+					<leftPen lineWidth="0.25" lineStyle="Double"/>
+					<bottomPen lineWidth="0.25" lineStyle="Double"/>
+					<rightPen lineWidth="0.25" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Thời Gian Di Chuyển]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="313" y="0" width="145" height="20" uuid="46de6ca5-bb0d-4b79-adae-a46f6bea5e1e"/>
+				<box>
+					<pen lineWidth="0.25" lineStyle="Double"/>
+					<topPen lineWidth="0.25" lineStyle="Double"/>
+					<leftPen lineWidth="0.25" lineStyle="Double"/>
+					<bottomPen lineWidth="0.25" lineStyle="Double"/>
+					<rightPen lineWidth="0.25" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Ghi Chú]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="121" y="0" width="192" height="20" uuid="4d1381a1-0aaf-4265-9561-fa2121788781"/>
+				<box>
+					<pen lineWidth="0.25" lineStyle="Double"/>
+					<topPen lineWidth="0.25" lineStyle="Double"/>
+					<leftPen lineWidth="0.25" lineStyle="Double"/>
+					<bottomPen lineWidth="0.25" lineStyle="Double"/>
+					<rightPen lineWidth="0.25" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Nơi Tham Quan]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<textField pattern="dd/MM/yyyy h.mm a">
+				<reportElement x="8" y="0" width="113" height="20" uuid="ccfec94a-e0b7-4580-9c0a-ed7363d691d7"/>
+				<box>
+					<pen lineWidth="0.25" lineStyle="Double"/>
+					<topPen lineWidth="0.25" lineStyle="Double"/>
+					<leftPen lineWidth="0.25" lineStyle="Double"/>
+					<bottomPen lineWidth="0.25" lineStyle="Double"/>
+					<rightPen lineWidth="0.25" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{LichTrinhChiTiet_MocThoiGian}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="121" y="0" width="192" height="20" uuid="737bcd73-6fbb-49e5-bac7-800cadbfcb7f"/>
+				<box>
+					<pen lineWidth="0.25" lineStyle="Double"/>
+					<topPen lineWidth="0.25" lineStyle="Double"/>
+					<leftPen lineWidth="0.25" lineStyle="Double"/>
+					<bottomPen lineWidth="0.25" lineStyle="Double"/>
+					<rightPen lineWidth="0.25" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{LichTrinhChiTiet_NoiThamQuan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="313" y="0" width="145" height="20" uuid="66532c91-e3cb-45cd-8f7f-2c5157b399e5"/>
+				<box>
+					<pen lineWidth="0.25" lineStyle="Double"/>
+					<topPen lineWidth="0.25" lineStyle="Double"/>
+					<leftPen lineWidth="0.25" lineStyle="Double"/>
+					<bottomPen lineWidth="0.25" lineStyle="Double"/>
+					<rightPen lineWidth="0.25" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{LichTrinhChiTiet_GhiChu}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
